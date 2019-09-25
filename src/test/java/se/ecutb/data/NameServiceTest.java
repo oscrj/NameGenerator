@@ -11,9 +11,7 @@ public class NameServiceTest {
     public void pojknamn_txt_successfully_read(){
         NameService testObject = new NameService();
         int expectedSize = 19499;
-
         List<String> result = testObject.maleFirstName();
-
         Assert.assertEquals(expectedSize, result.size());
     }
 
@@ -31,5 +29,26 @@ public class NameServiceTest {
         int expectedSize = 100;
         List<String> result = testobject.lastName();
         Assert.assertEquals(expectedSize, result.size());
+    }
+
+    @Test
+    public void get_Random_Male_Name(){
+        NameService testObject = new NameService();
+        String result = testObject.getRandomMaleName();
+        Assert.assertNotNull( result);
+    }
+
+    @Test
+    public void get_Random_Female_Name(){
+        NameService testObject = new NameService();
+        String result = testObject.getRandomFemaleName();
+        Assert.assertNotNull( result);
+    }
+
+    @Test
+    public void get_Random_Last_Name(){
+        NameService testObject = new NameService();
+        String result = testObject.getRandomLastName();
+        Assert.assertNotNull(result);
     }
 }

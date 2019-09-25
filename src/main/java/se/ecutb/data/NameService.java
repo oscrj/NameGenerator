@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import static se.ecutb.Model.RandomNumber.randomNumber;
 
 public class NameService {
 
@@ -51,5 +52,20 @@ public class NameService {
             e.printStackTrace();
         }
         return lastNames;
+    }
+
+    //Method to get a random Name using random number.
+    public String getRandomMaleName(){
+        return maleFirstName().get((randomNumber(maleFirstName().size())));
+    }
+
+    public String getRandomFemaleName(){
+
+        return femaleFirstName().get((randomNumber(femaleFirstName().size())));
+    }
+
+    public String getRandomLastName(){
+
+        return lastName().get(randomNumber(lastName().size()));
     }
 }
