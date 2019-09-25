@@ -72,10 +72,27 @@ public class NameServiceTest {
     }
 
     @Test
-    public  void get_Female_Or_Male_First_Last_Name(){
+    public void get_Female_Or_Male_First_Last_Name(){
         int testGender = 100;
         Assert.assertNotNull(testObject.getRandomMaleOrFemaleFirstLastName(testGender));
         Assert.assertNotNull(testObject.getRandomMaleOrFemaleFirstLastName(0));
         Assert.assertNotNull(testObject.getRandomMaleOrFemaleFirstLastName(1));
     }
+
+    @Test
+    public void get_Multiple_Random_Male_First_Name_Fixed_LastName(){
+        int testNumber = 1;
+        String testLastName = "olsson";
+        Assert.assertEquals(testNumber, testObject.getMaleNameWithSameLastName(testLastName, testNumber).size());
+
+    }
+
+    @Test
+    public void get_Multiple_Random_Female_First_Name_Fixed_LastName(){
+        int testNumber = 1;
+        String testLastName = "olsson";
+        Assert.assertEquals(testNumber, testObject.getFemaleNameWithSameLastName(testLastName, testNumber).size());
+    }
+
+
 }

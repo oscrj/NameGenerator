@@ -7,13 +7,13 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import static se.ecutb.Model.RandomNumber.randomNumber;
 
 public class NameService {
 
     static Scanner SCAN = new Scanner(System.in);
 
+    //Method to add name from file to ArrayList:
     public List<String> maleFirstName(){
 
         List<String> maleNames = new ArrayList<>();
@@ -27,7 +27,6 @@ public class NameService {
         }
         return maleNames;
     }
-
     public List<String> femaleFirstName(){
 
         List<String> femaleNames = new ArrayList<>();
@@ -42,7 +41,6 @@ public class NameService {
         }
         return femaleNames;
     }
-
     public List<String> lastName(){
 
         List<String> lastNames = new ArrayList<>();
@@ -63,17 +61,16 @@ public class NameService {
 
         return maleFirstName().get((randomNumber(maleFirstName().size())));
     }
-
     public String getRandomFemaleName(){
 
         return femaleFirstName().get((randomNumber(femaleFirstName().size())));
     }
-
     public String getRandomLastName(){
 
         return lastName().get(randomNumber(lastName().size()));
     }
 
+    //Method to get multiple names. Randomly picked male and female names.
     public List<String> getMultiplyRandomNames(int numberOfName){
          List<String> nameList = new ArrayList<>();
         for(int i = 0; i < numberOfName; i++){
@@ -108,6 +105,26 @@ public class NameService {
             return getRandomFemaleName().trim() + " " + getRandomLastName().trim();
         }
     }
+
+    public List<String> getMaleNameWithSameLastName(String lastName, int numberOfNames){
+        List<String> nameList = new ArrayList<>();
+        for(int i = 0; i < numberOfNames; i++){
+            nameList.add(getRandomMaleName().trim() + " " + lastName);
+        }
+        return nameList;
+    }
+
+    public List<String> getFemaleNameWithSameLastName(String lastName, int numberOfNames){
+        List<String> nameList = new ArrayList<>();
+        for(int i = 0; i < numberOfNames; i++){
+            nameList.add(getRandomFemaleName().trim() + " " + lastName);
+        }
+        return nameList;
+    }
+
+
+
+
 
     public int getValidInt() {
         boolean valid = false;
