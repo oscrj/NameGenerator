@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.SortedMap;
 
 import static se.ecutb.Model.RandomNumber.randomNumber;
 
@@ -90,12 +89,25 @@ public class NameService {
     }
 
     public String getMaleFirstNameLastName(){
-        return getRandomMaleName() + " " +  getRandomLastName();
+        return getRandomMaleName().trim() + " " +  getRandomLastName().trim();
     }
 
      public String getFemaleFirstNameLastName(){
-      return getRandomFemaleName() + " " + getRandomLastName();
-     }                                              
+        return getRandomFemaleName().trim() + " " + getRandomLastName().trim();
+     }
+
+    public String getRandomMaleOrFemaleFirstLastName(int gender) {
+
+        if(gender > 1){
+        gender = randomNumber(2);
+        }
+        if(gender == 0){
+            return getRandomMaleName().trim() + " " + getRandomLastName().trim();
+        }
+        else{
+            return getRandomFemaleName().trim() + " " + getRandomLastName().trim();
+        }
+    }
 
     public int getValidInt() {
         boolean valid = false;

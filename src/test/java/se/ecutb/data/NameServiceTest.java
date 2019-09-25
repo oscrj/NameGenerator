@@ -69,7 +69,13 @@ public class NameServiceTest {
     @Test
     public void get_Full_Name_Female(){
         Assert.assertNotNull(testObject.getFemaleFirstNameLastName());
+    }
 
-
+    @Test
+    public  void get_Female_Or_Male_First_Last_Name(){
+        int testGender = 100;
+        Assert.assertNotNull(testObject.getRandomMaleOrFemaleFirstLastName(testGender));
+        Assert.assertNotNull(testObject.getRandomMaleOrFemaleFirstLastName(0));
+        Assert.assertNotNull(testObject.getRandomMaleOrFemaleFirstLastName(1));
     }
 }
