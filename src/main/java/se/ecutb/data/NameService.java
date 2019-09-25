@@ -89,6 +89,14 @@ public class NameService {
         return nameList;
     }
 
+    public String getMaleFirstNameLastName(){
+        return getRandomMaleName() + " " +  getRandomLastName();
+    }
+
+     public String getFemaleFirstNameLastName(){
+      return getRandomFemaleName() + " " + getRandomLastName();
+     }                                              
+
     public int getValidInt() {
         boolean valid = false;
         int number = 0;
