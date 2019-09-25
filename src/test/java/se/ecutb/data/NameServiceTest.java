@@ -110,4 +110,10 @@ public class NameServiceTest {
 
     }
 
+    @Test
+    public void test_Get_Last_Name_By_First_Letter_In_Name(){
+        char testLetter = 'J';
+        String expected = "J";
+        Assert.assertTrue(testObject.getLastNameByFirstLetter(testLetter).startsWith(expected));
+    }
 }

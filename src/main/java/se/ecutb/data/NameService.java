@@ -106,6 +106,7 @@ public class NameService {
         }
     }
 
+    //Method to generate by amount of names combined with same lastname.
     public List<String> getMaleNameWithSameLastName(String lastName, int numberOfNames){
         List<String> nameList = new ArrayList<>();
         for(int i = 0; i < numberOfNames; i++){
@@ -113,7 +114,6 @@ public class NameService {
         }
         return nameList;
     }
-
     public List<String> getFemaleNameWithSameLastName(String lastName, int numberOfNames){
         List<String> nameList = new ArrayList<>();
         for(int i = 0; i < numberOfNames; i++){
@@ -132,12 +132,20 @@ public class NameService {
         }
         return nameList.get(randomNumber(nameList.size()));
     }
-
-    //Method to get a name by First letter in name.
     public String getFemaleNameByFirstLetter(char letter){
         List<String> nameList = new ArrayList<>();
         for(String name : femaleFirstName()) {
             if (name.charAt(0) == letter){
+                nameList.add(name);
+            }
+        }
+        return nameList.get(randomNumber(nameList.size()));
+    }
+
+    public String getLastNameByFirstLetter(char letter){
+        List<String> nameList = new ArrayList<>();
+        for(String name : lastName()){
+            if(name.charAt(0) == letter){
                 nameList.add(name);
             }
         }
