@@ -6,9 +6,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.SortedMap;
+
 import static se.ecutb.Model.RandomNumber.randomNumber;
 
 public class NameService {
+
+    static Scanner SCAN = new Scanner(System.in);
 
     public List<String> maleFirstName(){
 
@@ -56,6 +61,7 @@ public class NameService {
 
     //Method to get a random Name using random number.
     public String getRandomMaleName(){
+
         return maleFirstName().get((randomNumber(maleFirstName().size())));
     }
 
@@ -68,4 +74,38 @@ public class NameService {
 
         return lastName().get(randomNumber(lastName().size()));
     }
+
+    public List<String> getMultiplyRandomNames(int numberOfName){
+         List<String> nameList = new ArrayList<>();
+        for(int i = 0; i < numberOfName; i++){
+            int gender = randomNumber(2);
+            if(gender == 0){
+               nameList.add(getRandomMaleName()) ;
+            }
+            else{
+                nameList.add(getRandomFemaleName());
+            }
+        }
+        return nameList;
+    }
+
+    public int getValidInt() {
+        boolean valid = false;
+        int number = 0;
+        while (!valid) {
+            try {
+                number = Integer.parseInt(getString());
+                valid = true;
+            } catch (NumberFormatException exception) {
+                System.out.println("Please enter a number.");
+                return number;
+            }
+        }
+        return number;
+    }
+
+    public static String getString(){
+        return SCAN.nextLine();
+    }
+
 }

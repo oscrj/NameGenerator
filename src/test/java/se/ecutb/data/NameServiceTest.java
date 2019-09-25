@@ -51,4 +51,12 @@ public class NameServiceTest {
         String result = testObject.getRandomLastName();
         Assert.assertNotNull(result);
     }
+
+    @Test
+    public void get_Multiply_random_names(){
+        NameService testObject = new NameService();
+        int testNumberOfNames = 2;
+        Assert.assertNotNull(testObject.getMultiplyRandomNames(testNumberOfNames));
+        Assert.assertEquals(2, testObject.getMultiplyRandomNames(testNumberOfNames).size());
+    }
 }
