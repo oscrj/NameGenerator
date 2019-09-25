@@ -94,5 +94,20 @@ public class NameServiceTest {
         Assert.assertEquals(testNumber, testObject.getFemaleNameWithSameLastName(testLastName, testNumber).size());
     }
 
+    @Test
+    public void test_Get_Male_Name_By_First_Letter_In_Name(){
+        char testLetter = 'B';
+        String expected = "B";
+        Assert.assertTrue(testObject.getMaleNameByFirstLetter(testLetter).startsWith(expected));
+
+    }
+
+    @Test
+    public void test_Get_Female_Name_By_First_Letter_In_Name(){
+        char testLetter = 'A';
+        String expected = "A";
+        Assert.assertTrue(testObject.getFemaleNameByFirstLetter(testLetter).startsWith(expected));
+
+    }
 
 }

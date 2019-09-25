@@ -72,7 +72,7 @@ public class NameService {
 
     //Method to get multiple names. Randomly picked male and female names.
     public List<String> getMultiplyRandomNames(int numberOfName){
-         List<String> nameList = new ArrayList<>();
+        List<String> nameList = new ArrayList<>();
         for(int i = 0; i < numberOfName; i++){
             int gender = randomNumber(2);
             if(gender == 0){
@@ -122,8 +122,27 @@ public class NameService {
         return nameList;
     }
 
+    //Method to get a name by First letter in name.
+    public String getMaleNameByFirstLetter(char letter){
+        List<String> nameList = new ArrayList<>();
+        for(String name : maleFirstName()) {
+            if (name.charAt(0) == letter){
+                nameList.add(name);
+            }
+        }
+        return nameList.get(randomNumber(nameList.size()));
+    }
 
-
+    //Method to get a name by First letter in name.
+    public String getFemaleNameByFirstLetter(char letter){
+        List<String> nameList = new ArrayList<>();
+        for(String name : femaleFirstName()) {
+            if (name.charAt(0) == letter){
+                nameList.add(name);
+            }
+        }
+        return nameList.get(randomNumber(nameList.size()));
+    }
 
 
     public int getValidInt() {
